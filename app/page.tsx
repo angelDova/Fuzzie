@@ -1,4 +1,5 @@
 import { CardBody, CardContainer, CardItem } from "@/components/global/3d-card";
+
 import { ContainerScroll } from "@/components/global/container-scroll-animation";
 import { HeroParallax } from "@/components/global/hero-parallax";
 import { InfiniteMovingCards } from "@/components/global/infinite-moving-cards";
@@ -6,15 +7,17 @@ import { LampComponent } from "@/components/global/lamp";
 import Navbar from "@/components/global/navbar";
 import { Button } from "@/components/ui/button";
 import { clients, products } from "@/lib/constants";
+
 import { CheckIcon } from "lucide-react";
 import Image from "next/image";
 
 export default function Home() {
+  //WIP: remove fault IMAge for home page
   return (
-    <main className="">
+    <main className="flex flex-col items-center justify-center">
       <Navbar />
-      <section className="relative flex h-screen w-full flex-col items-center !overflow-visible rounded-md bg-neutral-950 antialiased">
-        <div className="absolute inset-0  h-full w-full items-center px-5 py-24 [background:radial-gradient(125%_125%_at_50%_10%,#000_35%,#223_100%)]" />
+      <section className="relative flex  h-screen w-full  flex-col items-center !overflow-visible rounded-md bg-neutral-950  antialiased">
+        <div className="absolute inset-0  h-full w-full items-center px-5 py-24 [background:radial-gradient(125%_125%_at_50%_10%,#000_35%,#223_100%)]"></div>
         <div className="mt-[-100px] flex flex-col md:mt-[-50px]">
           <ContainerScroll
             titleComponent={
@@ -35,20 +38,22 @@ export default function Home() {
           />
         </div>
       </section>
-      <InfiniteMovingCards
-        className="mt-[-100px] md:mt-[18rem]"
-        items={clients}
-        direction={"right"}
-        speed={"slow"}
-      />
-      <section className="">
+      <section className="mt-[150px]">
+        <InfiniteMovingCards
+          className="mt-[-100px] md:mt-[18rem]"
+          items={clients}
+          direction="right"
+          speed="slow"
+        />
+      </section>
+      <section>
         <HeroParallax products={products} />
       </section>
       <section className="mt-[-500px]">
         <LampComponent />
         <div className="-mt-72 flex flex-col flex-wrap items-center justify-center gap-8 md:flex-row">
-          <CardContainer className="inter-var">
-            <CardBody className="group/card relative h-auto  w-full rounded-xl border border-black/[0.1] bg-gray-50 p-6 transition duration-300 ease-in-out dark:border-white/[0.2] dark:bg-black hover:dark:border-[#E2CBFF] dark:hover:shadow-2xl dark:hover:shadow-neutral-500/[0.1] md:!w-[350px]">
+          <CardContainer className="inter-var ">
+            <CardBody className="group/card relative h-auto  w-full rounded-xl border border-black/[0.1] bg-gray-50 p-6 dark:border-white/[0.2] dark:bg-black dark:hover:shadow-2xl dark:hover:shadow-neutral-500/[0.1] md:!w-[350px]">
               <CardItem
                 translateZ="50"
                 className="text-xl font-bold text-neutral-600 dark:text-white "
@@ -95,7 +100,7 @@ export default function Home() {
             </CardBody>
           </CardContainer>
           <CardContainer className="inter-var ">
-            <CardBody className="group/card relative h-auto  w-full rounded-xl border border-black/[0.1] bg-gray-50 p-6 transition duration-300 ease-in-out dark:bg-black hover:dark:border-[#E2CBFF] dark:hover:shadow-2xl dark:hover:shadow-neutral-500/[0.1] md:!w-[350px]">
+            <CardBody className="group/card relative h-auto  w-full rounded-xl border border-black/[0.1] bg-gray-50 p-6 dark:border-[#E2CBFF] dark:bg-black dark:hover:shadow-2xl dark:hover:shadow-neutral-500/[0.1] md:!w-[350px]">
               <CardItem
                 translateZ="50"
                 className="text-xl font-bold text-neutral-600 dark:text-white "
@@ -142,7 +147,7 @@ export default function Home() {
             </CardBody>
           </CardContainer>
           <CardContainer className="inter-var ">
-            <CardBody className="group/card relative h-auto  w-full rounded-xl border border-black/[0.1] bg-gray-50 p-6 transition duration-300 ease-in-out dark:border-white/[0.2] dark:bg-black hover:dark:border-[#E2CBFF] dark:hover:shadow-2xl dark:hover:shadow-neutral-500/[0.1] md:!w-[350px]">
+            <CardBody className="group/card relative h-auto  w-full rounded-xl border border-black/[0.1] bg-gray-50 p-6 dark:border-white/[0.2] dark:bg-black dark:hover:shadow-2xl dark:hover:shadow-neutral-500/[0.1] md:!w-[350px]">
               <CardItem
                 translateZ="50"
                 className="text-xl font-bold text-neutral-600 dark:text-white "
