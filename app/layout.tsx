@@ -4,6 +4,7 @@ import { DM_Sans } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/providers/theme-provider";
 import CustomModal from "@/components/modal/custom-modal";
+import { Toaster } from "sonner";
 
 const font = DM_Sans({ subsets: ["latin"] });
 
@@ -40,6 +41,7 @@ export default function RootLayout({
               description="Workflows are a powerful tool that help you automate tasks"
               defaultOpen={false}
             />
+            <Toaster richColors />
             {children}
           </ThemeProvider>
         </body>
