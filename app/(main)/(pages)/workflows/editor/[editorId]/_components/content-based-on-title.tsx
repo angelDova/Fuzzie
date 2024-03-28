@@ -12,13 +12,13 @@ import {
 } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { onContentChange } from "@/lib/editor-utils";
+
 import GoogleDriveFiles from "./google-drive-files";
-// import ActionButton from "./action-button";
-// import { getFileMetaData } from "@/app/(main)/(pages)/connections/_actions/google-connection";
+import ActionButton from "./action-button";
+import { getFileMetaData } from "@/app/(main)/(pages)/connections/_actions/google-connection";
 import axios from "axios";
 import { toast } from "sonner";
 import GoogleFileDetails from "./google-file";
-import ActionButton from "./action-button";
 
 export interface Option {
   value: string;
@@ -53,20 +53,20 @@ const ContentBasedOnTitle = ({
   const { selectedNode } = newState.editor;
   const title = selectedNode.data.title;
 
-  //   useEffect(() => {
-  //     const reqGoogle = async () => {
-  //       const response: { data: { message: { files: any } } } =
-  //         await axios.get("/api/drive");
-  //       if (response) {
-  //         console.log(response.data.message.files[0]);
-  //         toast.message("Fetched File");
-  //         setFile(response.data.message.files[0]);
-  //       } else {
-  //         toast.error("Something went wrong");
-  //       }
-  //     };
-  //     reqGoogle();
-  //   }, []);
+  useEffect(() => {
+    const reqGoogle = async () => {
+      const response: { data: { message: { files: any } } } =
+        await axios.get("/api/drive");
+      if (response) {
+        console.log(response.data.message.files[0]);
+        toast.message("Fetched File");
+        setFile(response.data.message.files[0]);
+      } else {
+        toast.error("Something went wrong");
+      }
+    };
+    reqGoogle();
+  }, []);
 
   // @ts-ignore
   const nodeConnectionType: any = nodeConnection[nodeMapper[title]];
@@ -103,8 +103,6 @@ const ContentBasedOnTitle = ({
 
           <Input
             type="text"
-            className="text-muted-foreground"
-            placeholder="Enter text here"
             value={nodeConnectionType.content}
             onChange={(event) => onContentChange(nodeConnection, title, event)}
           />

@@ -5,6 +5,7 @@ import "./globals.css";
 import { ThemeProvider } from "@/providers/theme-provider";
 import CustomModal from "@/components/modal/custom-modal";
 import { Toaster } from "sonner";
+import { BillingProvider } from "@/providers/billing-provider";
 
 const font = DM_Sans({ subsets: ["latin"] });
 
@@ -36,13 +37,15 @@ export default function RootLayout({
             enableSystem
             disableTransitionOnChange
           >
-            <CustomModal
-              title={"Create a Workflow Automation"}
-              description="Workflows are a powerful tool that help you automate tasks"
-              defaultOpen={false}
-            />
-            <Toaster richColors />
-            {children}
+            <BillingProvider>
+              <CustomModal
+                title={"Create a Workflow Automation"}
+                description="Workflows are a powerful tool that help you automate tasks"
+                defaultOpen={false}
+              />
+              <Toaster richColors position="top-center" />
+              {children}
+            </BillingProvider>
           </ThemeProvider>
         </body>
       </html>
