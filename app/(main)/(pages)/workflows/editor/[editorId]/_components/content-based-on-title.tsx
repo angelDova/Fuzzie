@@ -18,6 +18,7 @@ import GoogleDriveFiles from "./google-drive-files";
 import axios from "axios";
 import { toast } from "sonner";
 import GoogleFileDetails from "./google-file";
+import ActionButton from "./action-button";
 
 export interface Option {
   value: string;
@@ -102,6 +103,8 @@ const ContentBasedOnTitle = ({
 
           <Input
             type="text"
+            className="text-muted-foreground"
+            placeholder="Enter text here"
             value={nodeConnectionType.content}
             onChange={(event) => onContentChange(nodeConnection, title, event)}
           />
@@ -123,12 +126,12 @@ const ContentBasedOnTitle = ({
             </Card>
           )}
           {title === "Google Drive" && <GoogleDriveFiles />}
-          {/* <ActionButton
+          <ActionButton
             currentService={title}
             nodeConnection={nodeConnection}
             channels={selectedSlackChannels}
             setChannels={setSelectedSlackChannels}
-          /> */}
+          />
         </div>
       </Card>
     </AccordionContent>

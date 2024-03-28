@@ -22,9 +22,9 @@ import {
 import { Input } from "../ui/input";
 import { Button } from "../ui/button";
 import { Loader2 } from "lucide-react";
+import { toast } from "sonner";
 import { onCreateWorkflow } from "@/app/(main)/(pages)/workflows/_actions/workflow-connections";
 import { useModal } from "@/providers/modal-provider";
-import { toast } from "sonner";
 
 type Props = {
   title?: string;
@@ -55,7 +55,7 @@ const Workflowform = ({ subTitle, title }: Props) => {
   };
 
   return (
-    <Card className="h-1/2 w-full max-w-[650px] border-none">
+    <Card className="w-full max-w-[650px] border-none">
       {title && subTitle && (
         <CardHeader>
           <CardTitle>{title}</CardTitle>
