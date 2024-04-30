@@ -9,7 +9,6 @@ import { Button } from "@/components/ui/button";
 import { clients, products } from "@/lib/constants";
 
 import { CheckIcon } from "lucide-react";
-import Image from "next/image";
 
 export default function Home() {
   //WIP: remove fault IMAge for home page
@@ -105,7 +104,7 @@ export default function Home() {
                 translateZ="50"
                 className="text-xl font-bold text-neutral-600 dark:text-white "
               >
-                Pro Plan
+                Pro Plan 💪
                 <h2 className="text-6xl ">$29</h2>
               </CardItem>
               <CardItem

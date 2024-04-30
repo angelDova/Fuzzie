@@ -43,8 +43,8 @@ export default function RootLayout({
                 description="Workflows are a powerful tool that help you automate tasks"
                 defaultOpen={false}
               />
-              <Toaster richColors position="top-center" />
               {children}
+              <Toaster richColors position="top-center" />
             </BillingProvider>
           </ThemeProvider>
         </body>
